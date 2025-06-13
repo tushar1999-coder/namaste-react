@@ -37,4 +37,4 @@ import {Component} from "path";
 (Normal JS utility functions)Add commentMore actions
 
 - useState() - Superpowerful State Variables in react
-- useEffect()
+- useEffect() 
