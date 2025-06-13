@@ -1,7 +1,7 @@
 .header {
   display: flex;
   justify-content: space-between;
-  border: 1px solid black
+  border: 1px solid black;
 }
 
 .logo {
@@ -9,7 +9,7 @@
 }
 
 .nav-items {
-  padding:  0px 20px;
+  padding: 0px 20px;
 }
 
 .nav-items > ul {
@@ -20,7 +20,7 @@
 
 .nav-items > ul > li {
   padding: 10px;
-  margin: 10px
+  margin: 10px;
 }
 
 .res-container {
@@ -40,7 +40,14 @@
 }
 
 .search {
-  padding: 10px
+  padding: 10px;
+}
+
+.res-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
 }
 
 .res-logo {

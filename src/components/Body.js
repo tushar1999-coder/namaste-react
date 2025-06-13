@@ -1,76 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import RestaurantCard from "./RestaurantCard";
 
-/**
- * Header
- *  - Logo
- *  - Nav Items
- * Body
- *  - Search
- *  - RestaurantContainer
- *    - RestaurantCard
- *      - Img
- *      - Name of Res, Star Rating, cuisine, delery tie
- * Footer
- *  - Copyright
- *  - Links
- *  - Address
- *  - Contact
- */
-
-const Header = () => {
-  return (
-    <div className='header'>
-      <div className='logo-container'>
-        <img
-          className='logo'
-          src='https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png'
-        />
-      </div>
-      <div className='nav-items'>
-        <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-const RestaurantCard = (props) => {
-  const { resData } = props;
-
-  const {
-    cloudinaryImageId,
-    name,
-    avgRating,
-    cuisines,
-    costForTwo,
-    deliveryTime,
-  } = resData?.data;
-
-  return (
-    <div className='res-card' style={{ backgroundColor: "#f0f0f0" }}>
-      <img
-        className='res-logo'
-        alt='res-logo'
-        src={
-          "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
-          cloudinaryImageId
-        }
-      />
-      <h3>{name}</h3>
-      <h4>{cuisines.join(", ")}</h4>
-      <h4>{avgRating} stars</h4>
-      <h4>₹{costForTwo / 100} FOR TWO</h4>
-      <h4>{deliveryTime} minutes</h4>
-    </div>
-  );
-};
-
-const resList = [
+//sir resList
+/*const resList = [
   {
     type: "restaurant",
     data: {
@@ -1954,6 +1885,1468 @@ const resList = [
     subtype: "basic",
   },
 ];
+*/
+
+// resList acc to latest swiggy api
+const resList = [
+  {
+    info: {
+      id: "774091",
+      name: "Theobroma",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2025/6/11/8fdf956c-6680-4cec-9cbe-428911a486d0_774091.jpg",
+      locality: "Khandari",
+      areaName: "CHURCH ROAD",
+      costForTwo: "₹400 for two",
+      cuisines: ["Bakery", "Desserts"],
+      avgRating: 4.5,
+      parentId: "1040",
+      avgRatingString: "4.5",
+      totalRatingsString: "642",
+      sla: {
+        deliveryTime: 22,
+        lastMileTravel: 4.4,
+        serviceability: "SERVICEABLE",
+        slaString: "20-25 mins",
+        lastMileTravelString: "4.4 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-06-12 23:59:00",
+        opened: true,
+      },
+      badges: {
+        imageBadges: [
+          {
+            imageId: "Rxawards/_CATEGORY-Desserts.png",
+            description: "Delivery!",
+          },
+          {
+            imageId: "newg.png",
+            description: "Gourmet",
+          },
+        ],
+      },
+      isOpen: true,
+      aggregatedDiscountInfoV2: {},
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {
+            badgeObject: [
+              {
+                attributes: {
+                  description: "Delivery!",
+                  imageId: "Rxawards/_CATEGORY-Desserts.png",
+                },
+              },
+              {
+                attributes: {
+                  description: "Gourmet",
+                  imageId: "newg.png",
+                },
+              },
+            ],
+          },
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "4.0",
+          ratingCount: "34",
+        },
+        source: "GOOGLE",
+        sourceIconImageId: "v1704440323/google_ratings/rating_google_tag",
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-e5f6ec93-85e3-4730-b9a1-13ddf9c0c3df",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/agra/theobroma-khandari-church-road-rest774091",
+      type: "WEBLINK",
+    },
+  },
+  {
+    info: {
+      id: "254105",
+      name: "McDonald's",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2025/1/9/9335702a-3244-46bf-8ace-ab24d983448e_254105.JPG",
+      locality: "Civil Lines",
+      areaName: "Sanjay Place",
+      costForTwo: "₹400 for two",
+      cuisines: ["American"],
+      avgRating: 4.3,
+      parentId: "630",
+      avgRatingString: "4.3",
+      totalRatingsString: "11K+",
+      sla: {
+        deliveryTime: 26,
+        lastMileTravel: 4,
+        serviceability: "SERVICEABLE",
+        slaString: "25-30 mins",
+        lastMileTravelString: "4.0 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-06-13 00:45:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "ITEMS",
+        subHeader: "AT ₹49",
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "4.1",
+          ratingCount: "5.8K+",
+        },
+        source: "GOOGLE",
+        sourceIconImageId: "v1704440323/google_ratings/rating_google_tag",
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-e5f6ec93-85e3-4730-b9a1-13ddf9c0c3df",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/agra/mcdonalds-civil-lines-sanjay-place-rest254105",
+      type: "WEBLINK",
+    },
+  },
+  {
+    info: {
+      id: "499778",
+      name: "NIC Ice Creams",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2024/11/22/df515257-51aa-412f-9065-d6778b6f9831_499778.jpg",
+      locality: "Sanjay Palace",
+      areaName: "Civil Lines",
+      costForTwo: "₹120 for two",
+      cuisines: ["Ice Cream", "Desserts"],
+      avgRating: 4.7,
+      veg: true,
+      parentId: "6249",
+      avgRatingString: "4.7",
+      totalRatingsString: "1.6K+",
+      sla: {
+        deliveryTime: 21,
+        lastMileTravel: 3.8,
+        serviceability: "SERVICEABLE",
+        slaString: "20-25 mins",
+        lastMileTravelString: "3.8 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-06-12 23:00:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "ITEMS",
+        subHeader: "AT ₹148",
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-e5f6ec93-85e3-4730-b9a1-13ddf9c0c3df",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/agra/nic-ice-creams-sanjay-palace-civil-lines-rest499778",
+      type: "WEBLINK",
+    },
+  },
+  {
+    info: {
+      id: "778196",
+      name: "Pizza Hut",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2025/6/9/5e38b1f7-a230-4ad6-b51f-974777137ee1_778196.JPG",
+      locality: "Civil Lines",
+      areaName: "Civil Lines",
+      costForTwo: "₹350 for two",
+      cuisines: ["Pizzas"],
+      avgRating: 4.3,
+      parentId: "721",
+      avgRatingString: "4.3",
+      totalRatingsString: "1.1K+",
+      sla: {
+        deliveryTime: 30,
+        lastMileTravel: 4.2,
+        serviceability: "SERVICEABLE",
+        slaString: "25-30 mins",
+        lastMileTravelString: "4.2 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-06-13 04:00:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "ITEMS",
+        subHeader: "AT ₹59",
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-e5f6ec93-85e3-4730-b9a1-13ddf9c0c3df",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/agra/pizza-hut-civil-lines-rest778196",
+      type: "WEBLINK",
+    },
+  },
+  {
+    info: {
+      id: "809929",
+      name: "Burger King",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2025/3/24/bb6a5ca5-c7d4-476c-9964-c567afb72bbf_809929.jpg",
+      locality: "Fatehabad Road",
+      areaName: "Agra",
+      costForTwo: "₹350 for two",
+      cuisines: ["Burgers", "American"],
+      avgRating: 4.4,
+      parentId: "166",
+      avgRatingString: "4.4",
+      totalRatingsString: "1.6K+",
+      sla: {
+        deliveryTime: 26,
+        lastMileTravel: 4.6,
+        serviceability: "SERVICEABLE",
+        slaString: "25-30 mins",
+        lastMileTravelString: "4.6 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-06-13 04:00:00",
+        opened: true,
+      },
+      badges: {
+        imageBadges: [
+          {
+            imageId: "Rxawards/_CATEGORY-Burger.png",
+            description: "Delivery!",
+          },
+        ],
+      },
+      isOpen: true,
+      aggregatedDiscountInfoV2: {},
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {
+            badgeObject: [
+              {
+                attributes: {
+                  description: "Delivery!",
+                  imageId: "Rxawards/_CATEGORY-Burger.png",
+                },
+              },
+            ],
+          },
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-e5f6ec93-85e3-4730-b9a1-13ddf9c0c3df",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/agra/burger-king-fatehabad-road-agra-rest809929",
+      type: "WEBLINK",
+    },
+  },
+  {
+    info: {
+      id: "793181",
+      name: "KFC",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2024/12/9/46346eb4-739a-48c0-9518-d005bd977319_793181.JPG",
+      locality: "Khandari",
+      areaName: "Nagar Nigam",
+      costForTwo: "₹400 for two",
+      cuisines: ["Burgers", "Fast Food", "Rolls & Wraps"],
+      avgRating: 4.2,
+      parentId: "547",
+      avgRatingString: "4.2",
+      totalRatingsString: "1.0K+",
+      sla: {
+        deliveryTime: 26,
+        lastMileTravel: 4.2,
+        serviceability: "SERVICEABLE",
+        slaString: "25-30 mins",
+        lastMileTravelString: "4.2 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-06-13 04:00:00",
+        opened: true,
+      },
+      badges: {
+        imageBadges: [
+          {
+            imageId: "Rxawards/_CATEGORY-Burger.png",
+            description: "Delivery!",
+          },
+        ],
+      },
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {
+            badgeObject: [
+              {
+                attributes: {
+                  description: "Delivery!",
+                  imageId: "Rxawards/_CATEGORY-Burger.png",
+                },
+              },
+            ],
+          },
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "ITEMS",
+        subHeader: "AT ₹59",
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "4.5",
+          ratingCount: "245",
+        },
+        source: "GOOGLE",
+        sourceIconImageId: "v1704440323/google_ratings/rating_google_tag",
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-e5f6ec93-85e3-4730-b9a1-13ddf9c0c3df",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/agra/kfc-khandari-nagar-nigam-rest793181",
+      type: "WEBLINK",
+    },
+  },
+  {
+    info: {
+      id: "493479",
+      name: "Kwality Walls Ice Cream and More",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2024/6/13/d86aa020-faad-4863-820d-a2d759c7a7a3_493479.JPG",
+      locality: "yamuna Colony",
+      areaName: "Trans Yamuna",
+      costForTwo: "₹200 for two",
+      cuisines: ["Desserts", "Ice Cream", "Ice Cream Cakes"],
+      avgRating: 4.6,
+      veg: true,
+      parentId: "582",
+      avgRatingString: "4.6",
+      totalRatingsString: "952",
+      sla: {
+        deliveryTime: 33,
+        lastMileTravel: 5.9,
+        serviceability: "SERVICEABLE",
+        slaString: "30-35 mins",
+        lastMileTravelString: "5.9 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-06-12 23:30:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      aggregatedDiscountInfoV2: {},
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-e5f6ec93-85e3-4730-b9a1-13ddf9c0c3df",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/agra/kwality-walls-ice-cream-and-more-yamuna-colony-trans-yamuna-rest493479",
+      type: "WEBLINK",
+    },
+  },
+  {
+    info: {
+      id: "499779",
+      name: "Grameen Kulfi",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2025/5/16/8353032c-6f8d-4ed2-ad92-16463cd4dca5_499779.jpg",
+      locality: "Block-94?",
+      areaName: "Civil Lines",
+      costForTwo: "₹120 for two",
+      cuisines: ["Ice Cream", "Desserts"],
+      avgRating: 4.8,
+      veg: true,
+      parentId: "12175",
+      avgRatingString: "4.8",
+      totalRatingsString: "375",
+      sla: {
+        deliveryTime: 21,
+        lastMileTravel: 3.8,
+        serviceability: "SERVICEABLE",
+        slaString: "20-25 mins",
+        lastMileTravelString: "3.8 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-06-12 23:00:00",
+        opened: true,
+      },
+      badges: {
+        imageBadges: [
+          {
+            imageId: "v1695133679/badges/Pure_Veg111.png",
+            description: "pureveg",
+          },
+        ],
+      },
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {
+            badgeObject: [
+              {
+                attributes: {
+                  description: "pureveg",
+                  imageId: "v1695133679/badges/Pure_Veg111.png",
+                },
+              },
+            ],
+          },
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "50% OFF",
+        subHeader: "UPTO ₹90",
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-e5f6ec93-85e3-4730-b9a1-13ddf9c0c3df",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/agra/grameen-kulfi-block-94-civil-lines-rest499779",
+      type: "WEBLINK",
+    },
+  },
+  {
+    info: {
+      id: "361096",
+      name: "The Good Bowl",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2024/12/20/d97e4bb0-f60e-43e7-9933-842f35ecc740_361096.jpg",
+      locality: "Nehru Nagar",
+      areaName: "Civil Lines",
+      costForTwo: "₹400 for two",
+      cuisines: [
+        "Biryani",
+        "North Indian",
+        "Pastas",
+        "Punjabi",
+        "Desserts",
+        "Beverages",
+      ],
+      avgRating: 4.4,
+      parentId: "7918",
+      avgRatingString: "4.4",
+      totalRatingsString: "1.2K+",
+      sla: {
+        deliveryTime: 36,
+        lastMileTravel: 5.9,
+        serviceability: "SERVICEABLE",
+        slaString: "35-40 mins",
+        lastMileTravelString: "5.9 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-06-12 23:59:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      aggregatedDiscountInfoV2: {},
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-e5f6ec93-85e3-4730-b9a1-13ddf9c0c3df",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/agra/the-good-bowl-nehru-nagar-civil-lines-rest361096",
+      type: "WEBLINK",
+    },
+  },
+  {
+    info: {
+      id: "91224",
+      name: "Shan-E-Hind",
+      cloudinaryImageId: "vha1czzdux6xnhfnewmb",
+      locality: "Agra Cantt",
+      areaName: "Agra Cantt",
+      costForTwo: "₹300 for two",
+      cuisines: ["Mughlai", "North Indian", "Rolls & Wraps", "Biryani"],
+      avgRating: 4.1,
+      parentId: "181610",
+      avgRatingString: "4.1",
+      totalRatingsString: "2.4K+",
+      sla: {
+        deliveryTime: 29,
+        lastMileTravel: 5,
+        serviceability: "SERVICEABLE",
+        slaString: "25-30 mins",
+        lastMileTravelString: "5.0 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-06-13 01:00:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "₹100 OFF",
+        subHeader: "ABOVE ₹249",
+        discountTag: "FLAT DEAL",
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "3.8",
+          ratingCount: "468",
+        },
+        source: "GOOGLE",
+        sourceIconImageId: "v1704440323/google_ratings/rating_google_tag",
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-e5f6ec93-85e3-4730-b9a1-13ddf9c0c3df",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/agra/shan-e-hind-agra-cantt-rest91224",
+      type: "WEBLINK",
+    },
+  },
+  {
+    info: {
+      id: "603476",
+      name: "Laziz Pizza",
+      cloudinaryImageId: "092897f126ab27672a41b4e536b60fe9",
+      locality: "NEHRU NAGAR",
+      areaName: "Avas Vikas",
+      costForTwo: "₹270 for two",
+      cuisines: ["Pizzas", "Burgers", "Pastas"],
+      avgRating: 4.1,
+      parentId: "2299",
+      avgRatingString: "4.1",
+      totalRatingsString: "2.0K+",
+      sla: {
+        deliveryTime: 51,
+        lastMileTravel: 8,
+        serviceability: "SERVICEABLE",
+        slaString: "50-55 mins",
+        lastMileTravelString: "8.0 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-06-12 23:59:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "ITEMS",
+        subHeader: "AT ₹79",
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-e5f6ec93-85e3-4730-b9a1-13ddf9c0c3df",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/agra/laziz-pizza-nehru-nagar-avas-vikas-rest603476",
+      type: "WEBLINK",
+    },
+  },
+  {
+    info: {
+      id: "695597",
+      name: "Cheesecake & co.",
+      cloudinaryImageId: "b318c0b4bc2169550145ace1d6e791a2",
+      locality: "Sheetla Road",
+      areaName: "SHEEL VIHAR COLONY",
+      costForTwo: "₹300 for two",
+      cuisines: ["Desserts", "Bakery"],
+      avgRating: 4.7,
+      veg: true,
+      parentId: "387417",
+      avgRatingString: "4.7",
+      totalRatingsString: "529",
+      sla: {
+        deliveryTime: 30,
+        lastMileTravel: 7,
+        serviceability: "SERVICEABLE",
+        slaString: "30-35 mins",
+        lastMileTravelString: "7.0 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-06-12 23:59:00",
+        opened: true,
+      },
+      badges: {
+        imageBadges: [
+          {
+            imageId: "newg.png",
+            description: "Gourmet",
+          },
+        ],
+      },
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {
+            badgeObject: [
+              {
+                attributes: {
+                  description: "Gourmet",
+                  imageId: "newg.png",
+                },
+              },
+            ],
+          },
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "50% OFF",
+        subHeader: "UPTO ₹100",
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-e5f6ec93-85e3-4730-b9a1-13ddf9c0c3df",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/agra/cheesecake-and-co-sheetla-road-sheel-vihar-colony-rest695597",
+      type: "WEBLINK",
+    },
+  },
+  {
+    info: {
+      id: "269557",
+      name: "Yadav Dhaba Purana",
+      cloudinaryImageId: "sbd65xunjpasnxdq0dgi",
+      locality: "Civil Lines",
+      areaName: "Civil Lines",
+      costForTwo: "₹250 for two",
+      cuisines: ["North Indian"],
+      avgRating: 4.1,
+      veg: true,
+      parentId: "227320",
+      avgRatingString: "4.1",
+      totalRatingsString: "2.5K+",
+      sla: {
+        deliveryTime: 25,
+        lastMileTravel: 3.9,
+        serviceability: "SERVICEABLE",
+        slaString: "20-25 mins",
+        lastMileTravelString: "3.9 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-06-12 23:59:00",
+        opened: true,
+      },
+      badges: {
+        imageBadges: [
+          {
+            imageId: "v1695133679/badges/Pure_Veg111.png",
+            description: "pureveg",
+          },
+        ],
+      },
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {
+            badgeObject: [
+              {
+                attributes: {
+                  description: "pureveg",
+                  imageId: "v1695133679/badges/Pure_Veg111.png",
+                },
+              },
+            ],
+          },
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "60% OFF",
+        subHeader: "UPTO ₹120",
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "3.9",
+          ratingCount: "1.2K+",
+        },
+        source: "GOOGLE",
+        sourceIconImageId: "v1704440323/google_ratings/rating_google_tag",
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-e5f6ec93-85e3-4730-b9a1-13ddf9c0c3df",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/agra/yadav-dhaba-purana-civil-lines-rest269557",
+      type: "WEBLINK",
+    },
+  },
+  {
+    info: {
+      id: "102953",
+      name: "GMB - Gopika Sweets & Restaurant",
+      cloudinaryImageId: "l6iqlfn5uwesenzcm0xk",
+      locality: "Jeoni Mandi",
+      areaName: "Jeoni Mandi",
+      costForTwo: "₹300 for two",
+      cuisines: ["Sweets", "Snacks"],
+      avgRating: 4.5,
+      parentId: "87777",
+      avgRatingString: "4.5",
+      totalRatingsString: "4.4K+",
+      sla: {
+        deliveryTime: 21,
+        lastMileTravel: 1.8,
+        serviceability: "SERVICEABLE",
+        slaString: "20-25 mins",
+        lastMileTravelString: "1.8 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-06-12 23:00:00",
+        opened: true,
+      },
+      badges: {
+        imageBadges: [
+          {
+            imageId: "bolt/big%20rx%20listing%2015%20mins%20.png",
+            description: "bolt!",
+          },
+        ],
+      },
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {
+            badgeObject: [
+              {
+                attributes: {
+                  description: "bolt!",
+                  imageId: "bolt/big%20rx%20listing%2015%20mins%20.png",
+                },
+              },
+            ],
+          },
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "50% OFF",
+        subHeader: "UPTO ₹100",
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "3.7",
+          ratingCount: "58",
+        },
+        source: "GOOGLE",
+        sourceIconImageId: "v1704440323/google_ratings/rating_google_tag",
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-e5f6ec93-85e3-4730-b9a1-13ddf9c0c3df",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/agra/gmb-gopika-sweets-and-restaurant-jeoni-mandi-rest102953",
+      type: "WEBLINK",
+    },
+  },
+  {
+    info: {
+      id: "74826",
+      name: "Subway",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2025/1/21/9c542414-4c03-4e08-8f0d-a68b10b24985_74826.JPG",
+      locality: "Khandari",
+      areaName: "Church Road",
+      costForTwo: "₹350 for two",
+      cuisines: ["sandwich", "Salads", "wrap", "Healthy Food"],
+      avgRating: 4.3,
+      parentId: "2",
+      avgRatingString: "4.3",
+      totalRatingsString: "1.4K+",
+      sla: {
+        deliveryTime: 26,
+        lastMileTravel: 4.4,
+        serviceability: "SERVICEABLE",
+        slaString: "25-30 mins",
+        lastMileTravelString: "4.4 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-06-12 23:55:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      aggregatedDiscountInfoV2: {},
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-e5f6ec93-85e3-4730-b9a1-13ddf9c0c3df",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/agra/subway-khandari-church-road-rest74826",
+      type: "WEBLINK",
+    },
+  },
+  {
+    info: {
+      id: "299472",
+      name: "La Pino'z Pizza",
+      cloudinaryImageId: "wsiozrbg3dmrfhsriiai",
+      locality: "Sanjay Place",
+      areaName: "Sanjay Place",
+      costForTwo: "₹300 for two",
+      cuisines: ["Pizzas", "Pastas", "Italian", "Desserts", "Beverages"],
+      avgRating: 4.3,
+      parentId: "4961",
+      avgRatingString: "4.3",
+      totalRatingsString: "12K+",
+      sla: {
+        deliveryTime: 27,
+        lastMileTravel: 3.9,
+        serviceability: "SERVICEABLE",
+        slaString: "25-30 mins",
+        lastMileTravelString: "3.9 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-06-13 04:00:00",
+        opened: true,
+      },
+      badges: {
+        imageBadges: [
+          {
+            imageId: "Rxawards/_CATEGORY-Pizza.png",
+            description: "Delivery!",
+          },
+        ],
+      },
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {
+            badgeObject: [
+              {
+                attributes: {
+                  description: "Delivery!",
+                  imageId: "Rxawards/_CATEGORY-Pizza.png",
+                },
+              },
+            ],
+          },
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "₹125 OFF",
+        subHeader: "ABOVE ₹349",
+        discountTag: "FLAT DEAL",
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "4.6",
+          ratingCount: "1.3K+",
+        },
+        source: "GOOGLE",
+        sourceIconImageId: "v1704440323/google_ratings/rating_google_tag",
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-e5f6ec93-85e3-4730-b9a1-13ddf9c0c3df",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/agra/la-pinoz-pizza-sanjay-place-rest299472",
+      type: "WEBLINK",
+    },
+  },
+  {
+    info: {
+      id: "665017",
+      name: "Baskin Robbins - Ice Cream Desserts",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2025/4/24/7415b245-f5ac-4145-9cea-0d4a23b97476_665017.JPG",
+      locality: "Bhagirathi Road",
+      areaName: "Khandari",
+      costForTwo: "₹250 for two",
+      cuisines: ["Desserts", "Ice Cream"],
+      avgRating: 4.6,
+      veg: true,
+      parentId: "5588",
+      avgRatingString: "4.6",
+      totalRatingsString: "116",
+      sla: {
+        deliveryTime: 27,
+        lastMileTravel: 5.7,
+        serviceability: "SERVICEABLE",
+        slaString: "25-30 mins",
+        lastMileTravelString: "5.7 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-06-13 02:00:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "50% OFF",
+        subHeader: "UPTO ₹90",
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-e5f6ec93-85e3-4730-b9a1-13ddf9c0c3df",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/agra/baskin-robbins-ice-cream-desserts-bhagirathi-road-khandari-rest665017",
+      type: "WEBLINK",
+    },
+  },
+  {
+    info: {
+      id: "629411",
+      name: "Dum Safar Biryani",
+      cloudinaryImageId: "p3uscqxnshkcafzsqv38",
+      locality: "Cosmos Mall",
+      areaName: "Civil Lines",
+      costForTwo: "₹500 for two",
+      cuisines: ["Biryani", "Kebabs", "Tandoor", "Indian", "Desserts"],
+      avgRating: 4.6,
+      parentId: "351013",
+      avgRatingString: "4.6",
+      totalRatingsString: "723",
+      sla: {
+        deliveryTime: 30,
+        lastMileTravel: 3.9,
+        serviceability: "SERVICEABLE",
+        slaString: "25-30 mins",
+        lastMileTravelString: "3.9 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-06-12 23:00:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "40% OFF",
+        subHeader: "UPTO ₹80",
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-e5f6ec93-85e3-4730-b9a1-13ddf9c0c3df",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/agra/dum-safar-biryani-cosmos-mall-civil-lines-rest629411",
+      type: "WEBLINK",
+    },
+  },
+  {
+    info: {
+      id: "103904",
+      name: "Down Town",
+      cloudinaryImageId: "wt2qvdeno3m8sgqu4yrk",
+      locality: "Rakabganj",
+      areaName: "Rakabganj",
+      costForTwo: "₹500 for two",
+      cuisines: ["Continental"],
+      avgRating: 4.5,
+      parentId: "74485",
+      avgRatingString: "4.5",
+      totalRatingsString: "112",
+      sla: {
+        deliveryTime: 32,
+        lastMileTravel: 3,
+        serviceability: "SERVICEABLE",
+        slaString: "30-35 mins",
+        lastMileTravelString: "3.0 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-06-12 23:00:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "10% OFF",
+        subHeader: "UPTO ₹40",
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "4.1",
+          ratingCount: "808",
+        },
+        source: "GOOGLE",
+        sourceIconImageId: "v1704440323/google_ratings/rating_google_tag",
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-e5f6ec93-85e3-4730-b9a1-13ddf9c0c3df",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/agra/down-town-rakabganj-rest103904",
+      type: "WEBLINK",
+    },
+  },
+  {
+    info: {
+      id: "129580",
+      name: "Yadav Dhaba",
+      cloudinaryImageId: "yaezmcutnbr72cm3vov3",
+      locality: "Lohamandi",
+      areaName: "Civil Lines",
+      costForTwo: "₹300 for two",
+      cuisines: ["Indian"],
+      avgRating: 4.1,
+      veg: true,
+      parentId: "13511",
+      avgRatingString: "4.1",
+      totalRatingsString: "6.4K+",
+      sla: {
+        deliveryTime: 32,
+        lastMileTravel: 3.9,
+        serviceability: "SERVICEABLE",
+        slaString: "30-35 mins",
+        lastMileTravelString: "3.9 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-06-12 23:59:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "30% OFF",
+        subHeader: "UPTO ₹75",
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "3.9",
+          ratingCount: "1.2K+",
+        },
+        source: "GOOGLE",
+        sourceIconImageId: "v1704440323/google_ratings/rating_google_tag",
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-e5f6ec93-85e3-4730-b9a1-13ddf9c0c3df",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/agra/yadav-dhaba-lohamandi-civil-lines-rest129580",
+      type: "WEBLINK",
+    },
+  },
+];
 
 const Body = () => {
   return (
@@ -1961,22 +3354,11 @@ const Body = () => {
       <div className='search'>Search</div>
       <div className='res-container'>
         {resList.map((restaurant) => (
-          <RestaurantCard key={restaurant.data.id} resData={restaurant} />
+          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}
       </div>
     </div>
   );
 };
 
-const AppLayout = () => {
-  return (
-    <div className='app'>
-      <Header />
-      <Body />
-    </div>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppLayout />);
+export default Body;
