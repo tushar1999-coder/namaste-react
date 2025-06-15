@@ -118,7 +118,7 @@ const Body = () => {
             setAppState("Showing Filtered Results");
           }}
         >
-          Top Rated Restaurants (Rating &gt;= 4.5)
+          Top Rated Restaurants (4.5+)
         </button>
         <button
           className='reset-btn'
