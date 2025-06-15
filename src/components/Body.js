@@ -1,10 +1,30 @@
 import RestaurantCard from "./RestaurantCard";
-import resList from "../utils/mockData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Body = () => {
   //local state variable - Super powerful variable
-  const [listOfRestaurants, setListOfRestaurants] = useState(resList);
+  const [originalListOfRestaurants, setOriginalListOfRestaurants] = useState(
+    []
+  );
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=27.18230&lng=78.02520&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+
+    const json = await data.json();
+    const jsonResList =
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
+
+    setOriginalListOfRestaurants(jsonResList);
+    setListOfRestaurants(jsonResList);
+  };
 
   return (
     <div className='body'>
@@ -12,7 +32,7 @@ const Body = () => {
         <button
           className='filter-btn'
           onClick={() => {
-            const filteredList = resList.filter(
+            const filteredList = listOfRestaurants.filter(
               (res) => res.info.avgRating >= 4.5
             );
             setListOfRestaurants(filteredList);
@@ -23,7 +43,7 @@ const Body = () => {
         <button
           className='reset-btn'
           onClick={() => {
-            setListOfRestaurants(resList);
+            setListOfRestaurants(originalListOfRestaurants);
           }}
         >
           All Restaurants
