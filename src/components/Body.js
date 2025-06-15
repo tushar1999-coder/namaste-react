@@ -79,7 +79,6 @@ const Body = () => {
           <button
             onClick={() => {
               //filter the restaurant cards and update the UI
-              //searchText
               console.log(searchText);
 
               if (searchText === "") {
