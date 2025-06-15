@@ -1,5 +1,6 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   //local state variable - Super powerful variable
@@ -18,6 +19,8 @@ const Body = () => {
     );
 
     const json = await data.json();
+
+    // Optional Chaining
     const jsonResList =
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
@@ -26,7 +29,11 @@ const Body = () => {
     setListOfRestaurants(jsonResList);
   };
 
-  return (
+  // Conditional Rendering
+
+  return listOfRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className='body'>
       <div className='filter-container'>
         <button
