@@ -5,7 +5,7 @@
 }
 
 .logo {
-  width: 200px;
+  width: 100px;
 }
 
 .nav-items {
@@ -96,6 +96,6 @@
   cursor: pointer;
 }
 
-.filter-container{
+.filter-container {
   display: flex;
 }
