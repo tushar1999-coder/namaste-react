@@ -40,6 +40,11 @@
   border: 1px solid black;
 }
 
+.res-card-link {
+  text-decoration: none;
+  color: initial;
+}
+
 .search {
   padding: 10px;
 }
@@ -98,4 +103,25 @@
 
 .filter-container {
   display: flex;
+}
+
+.item-card {
+  display: flex;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 20px;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.isVeg-icon {
+  width: 20px;
+  margin: 10px;
+}
+
+.item-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
 }
